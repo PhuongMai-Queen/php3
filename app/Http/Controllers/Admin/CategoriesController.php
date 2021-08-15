@@ -21,7 +21,8 @@ class CategoriesController extends Controller
     public function insert(Request $request){
         $name = $request->input('name');
         Category::create(array('name'=>$name));
-        return redirect('/admin/categories/create')->with('status',"Thêm thành công!");
+        toast('Thêm thành công!','success');
+        return redirect('/admin/categories/create');
     }
     public function edit($id){
         $category = Category::find($id);
@@ -32,7 +33,8 @@ class CategoriesController extends Controller
         $category = Category::find($id);
         $category->name = $data;
         $category->save();
-        return redirect('/admin/categories/edit/'.$id)->with('status',"Cập nhật thành công!");
+        toast('Cập nhật thành công!','success');
+        return redirect('/admin/categories/edit/'.$id);
     }
     public function delete(Request $request){
         if($request->destroy == 1){
@@ -42,6 +44,7 @@ class CategoriesController extends Controller
             $category = Category::find($request->id);
             $category->delete();
         }
-        return redirect('/admin/categories')->with('status',"Xóa thành công!");
+        toast('Xóa thành công!','success');
+        return redirect('/admin/categories');
     }
 }

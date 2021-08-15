@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title', 'Graphics Tablet - Home')
+@section('title', 'Graphics Tablet - Sản phẩm')
 
 @section('client')
 <style>
@@ -58,7 +58,7 @@
                         <h4>Loại sản phẩm</h4>
                         <ul>
                             @foreach($categories as $cate)
-                            <li><a href="#">{{ $cate->name }}</a></li>
+                            <li><a href="/product-cat/<?=$cate->id?>">{{ $cate->name }}</a></li>
                             @endforeach
                         </ul>
                     </div>
@@ -184,7 +184,7 @@
                                             @if(Auth::user())
                                                 <li><a href="/wishlist/<?=$discount->id?>"><i class="fa fa-heart"></i></a></li>
                                             @else
-                                                <li><a data-toggle="modal" data-target="#myModal"><i class="fa fa-heart"></i></a></li>
+                                                <li><a href="/wishlist"><i class="fa fa-heart"></i></a></li>
                                             @endif
                                             <li><a href="#"><i class="fa fa-retweet"></i></a></li>
                                             <li><a href="/add-to-cart/<?=$discount->id?>"><i class="fa fa-shopping-cart"></i></a></li>
@@ -243,7 +243,7 @@
                                     @if(Auth::user())
                                         <li><a href="/wishlist/<?=$pro->id?>"><i class="fa fa-heart"></i></a></li>
                                     @else
-                                        <li><a data-toggle="modal" data-target="#myModal"><i class="fa fa-heart"></i></a></li>
+                                        <li><a href="/wishlist"><i class="fa fa-heart"></i></a></li>
                                     @endif
                                     <li><a href="#"><i class="fa fa-retweet"></i></a></li>
                                     <li><a href="/add-to-cart/<?=$pro->id?>"><i class="fa fa-shopping-cart"></i></a></li>

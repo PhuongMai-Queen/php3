@@ -9,6 +9,7 @@ use App\Models\Wishlist;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
+
 class HomeController extends Controller
 {
     /**
@@ -52,7 +53,7 @@ class HomeController extends Controller
         return view('home', [
             'product_outstanding'=>$product_outstanding,
             'product_discount'=>$product_discount,
-            'blogs'=>$blogs
+            'blogs'=>$blogs,
         ]);
     }
     public function about()

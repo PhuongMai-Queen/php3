@@ -11,5 +11,5 @@ class Cart extends Model
     use SoftDeletes, HasFactory;
     protected $primaryKey = 'id';
     protected $table = 'cart';
-    protected $fillable = array('id_product', 'quantity','id_user');
+    protected $fillable = array('id_product', 'name', 'quantity', 'image', 'price', 'id_user');
 }

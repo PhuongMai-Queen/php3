@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title', 'Graphics Tablet - Home')
+@section('title', 'Graphics Tablet - Kết quả')
 
 @section('client')
     <!-- Breadcrumb Section Begin -->
@@ -54,7 +54,12 @@
                                     <div class="checkout__order__total" style="padding-top: 15px;">Tổng tiền đơn hàng<span>{{ number_format($total,3,".",".") }} đ</span></div>
 {{--                                    <button type="submit" class="site-btn">ĐẶT HÀNG</button>--}}
                                     <a href="/collection" class="btn btn-success">Tiếp tục mua hàng</a>
-                                    <a href="" class="btn btn-danger" style="float: right">Đăng ký tài khoản để theo dõi đơn hàng</a>
+                                    @if(!empty(Auth::user()))
+                                        <a href="/user/history/<?=Auth::user()->id?>" class="btn btn-danger" style="float: right">Theo dõi đơn hàng</a>
+                                    @else
+                                        <a href="{{ route('register') }}" class="btn btn-danger" style="float: right">Đăng ký tài khoản để theo dõi đơn hàng</a>
+                                    @endif
+
                             </div>
                         </div>
                     </div>

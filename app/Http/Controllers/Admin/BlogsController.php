@@ -29,7 +29,8 @@ class BlogsController extends Controller
         $title = $request->input('title');
         $content = $request->input('content');
         Blog::create(array('image'=>$imageName, 'title'=>$title, 'content'=>$content));
-        return redirect('/admin/blogs/create')->with('status',"Thêm thành công!");
+        toast('Thêm thành công!','success');
+        return redirect('/admin/blogs/create');
     }
     public function edit($id){
         $blog = Blog::find($id);
@@ -52,7 +53,8 @@ class BlogsController extends Controller
         $blog->title = $title;
         $blog->content = $content;
         $blog->save();
-        return redirect('/admin/blogs/edit/'.$id)->with('status',"Cập nhật thành công!");
+        toast('Cập nhật thành công!','success');
+        return redirect('/admin/blogs/edit/'.$id);
     }
     public function delete(Request $request){
         if($request->destroy == 1){
@@ -62,6 +64,7 @@ class BlogsController extends Controller
             $blog = Blog::find($request->id);
             $blog->delete();
         }
-        return redirect('/admin/blogs')->with('status',"Xóa thành công!");
+        toast('Xóa thành công!','success');
+        return redirect('/admin/blogs');
     }
 }

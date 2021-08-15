@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-@section('title', 'Loại sản phẩm | Admin - Graphics Tablet')
+@section('title', 'Chỉnh sửa loại sản phẩm | Admin - Graphics Tablet')
 @section('content')
     <div class="single-product-tab-area mg-tb-15">
         <!-- Single pro tab review Start-->

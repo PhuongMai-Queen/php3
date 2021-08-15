@@ -99,6 +99,7 @@
 <div id="preloder">
     <div class="loader"></div>
 </div>
+@include('sweetalert::alert')
 @if (!empty($message))
     <div class="modal fade show" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -313,16 +314,21 @@
                                 </span>
                             </a></li>
                         @else
-                            <li><a data-toggle="modal" data-target="#myModal"><i class="fa fa-heart"></i> <span class="count-cart">0</span></a></li>
+                            <li><a href="/wishlist"><i class="fa fa-heart"></i>
+                                    <span class="count-cart">0</span></a>
+                            </li>
                         @endif
                         <li>
                             <div class="header__top__right__language header__top__right__cart">
                                 @php $total = 0 @endphp
                                 @php $count = 0 @endphp
-                                @foreach((array) session('cart') as $id => $details)
-                                    @php $total += $details['price'] * $details['quantity'] @endphp
-                                    @php $count += $details['quantity'] @endphp
-                                @endforeach
+
+                                @if(session('cart') && array(session('cart')))
+                                    @foreach(session('cart') as $id => $details)
+                                        @php $total += $details['price'] * $details['quantity'] @endphp
+                                        @php $count += $details['quantity'] @endphp
+                                    @endforeach
+                                @endif
                                 <i class="fa fa-shopping-bag"></i>
                                 <span class="count-cart">{{$count }}</span>
                                 <ul style="width: 280px;left: -100px;margin: 0;background-color: antiquewhite;" class="p-0">
@@ -380,7 +386,7 @@
                     <ul>
                         @if(session('Cat'))
                             @foreach (session('Cat') as $key=>$cat)
-                                <li><a href="/<?=$cat['id']?>">{{$cat['name']}}</a></li>
+                                <li><a href="product-cat/<?=$cat['id']?>">{{$cat['name']}}</a></li>
                             @endforeach
                         @endif
                     </ul>
@@ -505,7 +511,7 @@
 <script src="{{ asset('js/mixitup.min.js') }}"></script>
 <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
 <script src="{{ asset('js/main.js') }}"></script>
-
+<script src="https://unpkg.com/sweetalert2@7.18.0/dist/sweetalert2.all.js"></script>
 <script>
     $(window).on('load', function() {
         $('#myModal1').modal('show');

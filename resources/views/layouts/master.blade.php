@@ -87,6 +87,7 @@ $first_part = $components[1];
     <link rel="stylesheet" href="{{ asset('css/style.css') }}" type="text/css">
     <link rel="stylesheet" href="{{ asset('css/custom.css') }}" type="text/css">
     <link rel="stylesheet" href="{{ asset('css/font-awesome.css') }}">
+
 {{--    <link rel="stylesheet" href="{{ mix('css/app.css') }}">--}}
 
 <!-- Scripts -->
@@ -102,6 +103,7 @@ $first_part = $components[1];
 <div id="preloder">
     <div class="loader"></div>
 </div>
+@include('sweetalert::alert')
 @if (!empty($message))
     <div class="modal fade show" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -314,7 +316,7 @@ $first_part = $components[1];
                         @if(Auth::user())
                             <li><a href="/wishlist"><i class="fa fa-heart"></i> <span class="count-cart">{{ session('countW') }}</span></a></li>
                         @else
-                            <li><a data-toggle="modal" data-target="#myModal"><i class="fa fa-heart"></i> <span class="count-cart">0</span></a></li>
+                            <li><a href="/wishlist"><i class="fa fa-heart"></i> <span class="count-cart">0</span></a></li>
                         @endif
                         <li>
                             <div class="header__top__right__language header__top__right__cart">
@@ -382,7 +384,7 @@ $first_part = $components[1];
                     <ul>
                         @if(session('Cat'))
                             @foreach (session('Cat') as $key=>$cat)
-                                <li><a href="/<?=$cat['id']?>">{{$cat['name']}}</a></li>
+                                <li><a href="/product-cat/<?=$cat['id']?>">{{$cat['name']}}</a></li>
                             @endforeach
                         @endif
                     </ul>
@@ -506,6 +508,7 @@ $first_part = $components[1];
 <script src="{{ asset('js/mixitup.min.js') }}"></script>
 <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
 <script src="{{ asset('js/main.js') }}"></script>
+<script src="https://unpkg.com/sweetalert2@7.18.0/dist/sweetalert2.all.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>

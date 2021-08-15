@@ -23,16 +23,17 @@
                                         <div class="input-group mg-b-pro-edt" style="width: 100%;">
                                             <div class="form-group">
                                                 <label>Nội dung</label>
-                                                <textarea id="editor" name="content">
+                                                <textarea id="summernote2" name="content" ></textarea>
+{{--                                                <textarea id="editor" name="content">--}}
 
-                                                </textarea>
-                                                <script>
-                                                    ClassicEditor
-                                                        .create( document.querySelector( '#editor' ) )
-                                                        .catch( error => {
-                                                            console.error( error );
-                                                        } );
-                                                </script>
+{{--                                                </textarea>--}}
+{{--                                                <script>--}}
+{{--                                                    ClassicEditor--}}
+{{--                                                        .create( document.querySelector( '#editor' ) )--}}
+{{--                                                        .catch( error => {--}}
+{{--                                                            console.error( error );--}}
+{{--                                                        } );--}}
+{{--                                                </script>--}}
 {{--                                                <textarea id="summernote2" name="content" ></textarea>--}}
                                             </div>
                                         </div>

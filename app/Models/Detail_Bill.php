@@ -12,7 +12,7 @@ class Detail_Bill extends Model
     protected $primaryKey = 'id';
     protected $table = 'detail_bill';
     protected $fillable = [
-        'name',
+        'product_name',
         'quantity',
         'price',
         'image',

@@ -89,7 +89,7 @@
             </div>
         </div>
     @endif
-
+    @include('sweetalert::alert')
     <div class="left-sidebar-pro">
         <nav id="sidebar" class="">
         <div class="sidebar-header">
@@ -118,7 +118,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a title="View Mail" href="/admin/categories/add">
+                                <a title="View Mail" href="/admin/categories/create">
                                     <i class="fa fa-plus-square-o sub-icon-mg" aria-hidden="true"></i>
                                     <span class="mini-sub-pro">Thêm mới</span>
                                 </a>
@@ -958,7 +958,7 @@
             </div>
         </div>
     </div>
-
+    <script src="https://unpkg.com/sweetalert2@7.18.0/dist/sweetalert2.all.js"></script>
     <!-- jquery
          ============================================ -->
     <script src="{{ asset('js/admin/vendor/jquery-1.11.3.min.js') }}"></script>

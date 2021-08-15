@@ -34,7 +34,8 @@ class UsersController extends Controller
         $password = $request->input('password');
         $role = $request->input('role');
         User::create(array('avatar'=>$imageName, 'name'=>$name, 'username'=>$username, 'email'=>$email, 'password'=>$password, 'role'=>$role));
-        return redirect('/admin/users/add')->with('status',"Thêm thành công!");
+        toast('Thêm thành công!','success');
+        return redirect('/admin/users/add');
     }
     public function edit($id){
         $user = User::find($id);
@@ -57,7 +58,8 @@ class UsersController extends Controller
         $user->name = $name;
         $user->role = $role;
         $user->save();
-        return redirect('/admin/users/edit/'.$id)->with('status',"Cập nhật thành công!");
+        toast('Cập nhật thành công!','success');
+        return redirect('/admin/users/edit/'.$id);
     }
     public function delete(Request $request){
         if($request->destroy == 1){
@@ -67,6 +69,7 @@ class UsersController extends Controller
             $user = User::find($request->id);
             $user->delete();
         }
-        return redirect('/admin/users')->with('status',"Xóa thành công!");
+        toast('Xóa thành công!','success');
+        return redirect('/admin/users');
     }
 }

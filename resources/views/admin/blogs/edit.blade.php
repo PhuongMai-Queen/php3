@@ -23,15 +23,15 @@
                                             <div class="input-group mg-b-pro-edt" style="width: 100%;">
                                                 <div class="form-group">
                                                     <label>Nội dung</label>
-                                                    <textarea id="editor" name="content">{{$blog->content}}</textarea>
-                                                    <script>
-                                                        InlineEditor
-                                                            .create( document.querySelector( '#editor' ) )
-                                                            .catch( error => {
-                                                                console.error( error );
-                                                            } );
-                                                    </script>
-{{--                                                    <textarea id="summernote2" name="content">{{$blog->content}}</textarea>--}}
+{{--                                                    <textarea id="editor" name="content">{{$blog->content}}</textarea>--}}
+{{--                                                    <script>--}}
+{{--                                                        InlineEditor--}}
+{{--                                                            .create( document.querySelector( '#editor' ) )--}}
+{{--                                                            .catch( error => {--}}
+{{--                                                                console.error( error );--}}
+{{--                                                            } );--}}
+{{--                                                    </script>--}}
+                                                    <textarea id="summernote2" name="content">{{$blog->content}}</textarea>
                                                 </div>
                                             </div>
                                         </div>

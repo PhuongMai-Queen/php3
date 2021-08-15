@@ -1,8 +1,10 @@
 @extends('layouts.master')
-@section('title', 'Graphics Tablet - Home')
+@section('title', 'Graphics Tablet - Chi tiết sản phẩm')
 
 @section('client')
-
+    <?php
+    $link = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+    ?>
 <!-- Breadcrumb Section Begin -->
 <section class="breadcrumb-section set-bg" data-setbg="{{URL::asset('img/breadcrumb.jpg')}}">
     <div class="container">
@@ -75,7 +77,12 @@
 {{--                        </div>--}}
 {{--                    </div>--}}
                     <a href="/add-to-cart/<?=$product->id?>" class="primary-btn">THÊM VÀO GIỎ HÀNG</a>
-                    <a href="#" class="heart-icon"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
+                    @if(Auth::user())
+                        <a href="/wishlist/<?=$product->id?>" class="heart-icon"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
+                    @else
+                        <a href="/wishlist" class="heart-icon"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
+                    @endif
+
                     <ul>
                         <li><b>Trạng thái: </b> <span><?php if($product->availability == 0){echo 'Hết hàng';} else{echo 'Còn hàng';}?></span></li>
 {{--                        <li><b>Shipping</b> <span>01 day shipping. <samp>Free pickup today</samp></span></li>--}}
@@ -104,7 +111,7 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" data-toggle="tab" href="#tabs-3" role="tab"
-                               aria-selected="false">Bình luận <span>(1)</span></a>
+                               aria-selected="false">Bình luận <span></span></a>
                         </li>
                     </ul>
                     <div class="tab-content">
@@ -140,24 +147,33 @@
                         </div>
                         <div class="tab-pane" id="tabs-3" role="tabpanel">
                             <div class="product__details__tab__desc">
-                                <h6 class="pl-4">Bình luận sản phẩm</h6>
-                                <div class="contact-form pt-0">
-                                    <div class="container">
-                                        <form action="#">
-                                            <div class="row">
-                                                <div class="col-lg-6 col-md-6">
-                                                    <input type="text" placeholder="Tên">
-                                                </div>
-                                                <div class="col-lg-6 col-md-6">
-                                                    <input type="text" placeholder="Email">
-                                                </div>
-                                                <div class="col-lg-12 text-center">
-                                                    <textarea placeholder="Nội dung"></textarea>
-                                                    <button type="submit" class="site-btn">Gửi bình luận</button>
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
+{{--                                <h6 class="pl-4">Bình luận sản phẩm</h6>--}}
+{{--                                <div class="contact-form pt-0">--}}
+{{--                                    <div class="container">--}}
+{{--                                        <form action="#">--}}
+{{--                                            <div class="row">--}}
+{{--                                                <div class="col-lg-6 col-md-6">--}}
+{{--                                                    <input type="text" placeholder="Tên">--}}
+{{--                                                </div>--}}
+{{--                                                <div class="col-lg-6 col-md-6">--}}
+{{--                                                    <input type="text" placeholder="Email">--}}
+{{--                                                </div>--}}
+{{--                                                <div class="col-lg-12 text-center">--}}
+{{--                                                    <textarea placeholder="Nội dung"></textarea>--}}
+{{--                                                    <button type="submit" class="site-btn">Gửi bình luận</button>--}}
+{{--                                                </div>--}}
+{{--                                            </div>--}}
+{{--                                        </form>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+                                <div class="col-lg-12">
+                                    <div class="fb-like" data-href="<?=$link?>"
+                                         data-width="" data-layout="standard"
+                                         data-action="like" data-size="small"
+                                         data-share="true"></div>
+                                    <div class="fb-comments"
+                                         data-href="<?=$link?>"
+                                         data-width="100%" data-numposts="50"></div>
                                 </div>
                             </div>
                         </div>
@@ -188,7 +204,7 @@
                             @if(Auth::user())
                                 <li><a href="/wishlist/<?=$rel->id?>"><i class="fa fa-heart"></i></a></li>
                             @else
-                                <li><a data-toggle="modal" data-target="#myModal"><i class="fa fa-heart"></i></a></li>
+                                <li><a href="/wishlist"><i class="fa fa-heart"></i></a></li>
                             @endif
                             <li><a href="#"><i class="fa fa-retweet"></i></a></li>
                             <li><a href="/add-to-cart/<?=$rel->id?>"><i class="fa fa-shopping-cart"></i></a></li>

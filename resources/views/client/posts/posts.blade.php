@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title', 'Graphics Tablet - Home')
+@section('title', 'Graphics Tablet - Bài viết')
 
 @section('client')
 
@@ -79,7 +79,7 @@
                                 <div>
                                     {!! Illuminate\Support\Str::limit($blog->content, 100, $end='...') !!}
                                 </div>
-                                <a href="/post/{{ $blog->id }}" class="blog__btn">ĐỌC TIẾP <span class="arrow_right"></span></a>
+                                <a href="/post/{{ $blog->id }}" class="blog__btn">ĐỌC TIẾP <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
                             </div>
                         </div>
                     </div>

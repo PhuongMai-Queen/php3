@@ -21,6 +21,8 @@
 {{--    </div>--}}
 {{--</div>--}}
 {{--@endsection--}}
+
+
 @extends('layouts.layout1')
 @section('title', 'Graphics Tablet - Home')
 @section('hero')
@@ -31,6 +33,7 @@
     </div>
 @stop
 @section('client')
+
     <!-- Featured Section Begin -->
     <section class="featured spad pt-2">
         <div class="container">
@@ -62,7 +65,7 @@
                                 @if(Auth::user())
                                     <li><a href="/wishlist/<?=$outstanding->id?>"><i class="fa fa-heart"></i></a></li>
                                 @else
-                                    <li><a data-toggle="modal" data-target="#myModal"><i class="fa fa-heart"></i></a></li>
+                                    <li><a href="/wishlist"><i class="fa fa-heart"></i></a></li>
                                 @endif
                                 <li><a href="#"><i class="fa fa-retweet"></i></a></li>
                                 <li><a href="/add-to-cart/<?=$outstanding->id?>"><i class="fa fa-shopping-cart"></i></a></li>
@@ -124,7 +127,7 @@
                                     @if(Auth::user())
                                         <li><a href="/wishlist/<?=$discount->id?>"><i class="fa fa-heart"></i></a></li>
                                     @else
-                                        <li><a data-toggle="modal" data-target="#myModal"><i class="fa fa-heart"></i></a></li>
+                                        <li><a href="/wishlist"><i class="fa fa-heart"></i></a></li>
                                     @endif
                                     <li><a href="#"><i class="fa fa-retweet"></i></a></li>
                                     <li><a href="/add-to-cart/<?=$discount->id?>"><i class="fa fa-shopping-cart"></i></a></li>

@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title', 'Graphics Tablet - Home')
+@section('title', 'Graphics Tablet - Đổi mật khẩu')
 
 @section('client')
 
@@ -36,6 +36,7 @@
                         </div>
                         <ul class="nav-pills nav-stacked">
                             <li><a href="/user/profile/<?=$user->id?>"> <i class="fa fa-user text-danger"></i> Tài khoản</a></li>
+                            <li><a href="/user/history/<?=$user->id?>"> <i class="fa fa-history text-danger" aria-hidden="true"></i> Lịch sử đơn hàng</a></li>
                             <li><a href="/user/profile/edit/<?=$user->id?>"> <i class="fa fa-edit text-danger"></i> Cập nhật tài khoản</a></li>
                             <li  class="active"><a href="/user/profile/change-pass/<?=$user->id?>"> <i class="fa fa-unlock-alt text-danger" aria-hidden="true"></i> Đổi mật khẩu</a></li>
                             <li>
@@ -63,38 +64,35 @@
                                     <form action="/user/profile/update-pass/<?=$id?>" method="post" class="form-update-account" >
                                         {{ csrf_field() }}
                                         <div class="row">
-                                            <div class="col-lg-6 col-md-6 update-account-item">
-                                                <div class="input-group mb-3">
-                                                    <div class="input-group-prepend">
-                                                        <span class="input-group-text" id="basic-addon1">Email</span>
-                                                    </div>
-                                                    <input type="text" class="form-control" name="email" aria-describedby="basic-addon1">
-                                                </div>
+                                            <div class="form-group col-6 m-0">
+                                                <label>Email</label>
+                                                <input type="text" class="form-control input-height mb-2" name="email">
+                                                @if ($errors->has('email'))
+                                                    <span class="text-danger" style="font-style: italic">{{ $errors->first('email') }}</span>
+                                                @endif
                                             </div>
-                                            <div class="col-lg-6 col-md-6 update-account-item">
-                                                <div class="input-group mb-3">
-                                                    <div class="input-group-prepend">
-                                                        <span class="input-group-text" id="basic-addon1">Mật khẩu cũ</span>
-                                                    </div>
-                                                    <input type="password" class="form-control" name="old_pass" aria-describedby="basic-addon1">
-                                                </div>
+                                            <div class="form-group col-6 m-0">
+                                                <label>Mật khẩu cũ</label>
+                                                <input type="password" class="form-control input-height mb-2" name="old_pass">
+                                                @if ($errors->has('old_pass'))
+                                                    <span class="text-danger" style="font-style: italic">{{ $errors->first('old_pass') }}</span>
+                                                @endif
                                             </div>
-                                            <div class="col-lg-6 col-md-6 update-account-item">
-                                                <div class="input-group mb-3">
-                                                    <div class="input-group-prepend">
-                                                        <span class="input-group-text" id="basic-addon1">Mật khẩu mới</span>
-                                                    </div>
-                                                    <input type="password" class="form-control" name="new_pass" aria-describedby="basic-addon1">
-                                                </div>
+                                            <div class="form-group col-6 m-0">
+                                                <label>Mật khẩu mới</label>
+                                                <input type="password" class="form-control input-height mb-2" name="new_pass">
+                                                @if ($errors->has('new_pass'))
+                                                    <span class="text-danger" style="font-style: italic">{{ $errors->first('new_pass') }}</span>
+                                                @endif
                                             </div>
-                                            <div class="col-lg-6 col-md-6 update-account-item">
-                                                <div class="input-group mb-3">
-                                                    <div class="input-group-prepend">
-                                                        <span class="input-group-text" id="basic-addon1">Xác nhận mật khẩu</span>
-                                                    </div>
-                                                    <input type="password" class="form-control" name="c_pass" aria-describedby="basic-addon1">
-                                                </div>
+                                            <div class="form-group col-6 m-0">
+                                                <label>Mật khẩu mới</label>
+                                                <input type="password" class="form-control input-height mb-2" name="c_pass">
+                                                @if ($errors->has('c_pass'))
+                                                    <span class="text-danger" style="font-style: italic">{{ $errors->first('c_pass') }}</span>
+                                                @endif
                                             </div>
+
                                             <div class="col-lg-12 pt-3">
                                                 <button type="submit" class="site-btn">ĐỔI</button>
                                             </div>

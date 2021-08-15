@@ -21,6 +21,7 @@ class Bill extends Model
         'count',
         'total',
         'payment_status',
-        'delivery_status'
+        'delivery_status',
+        'id_user'
     ];
 }

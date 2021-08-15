@@ -52,7 +52,8 @@ class ProductsController extends Controller
         'discount'=>$discount, 'availability'=>$availability, 'short_description'=>$short_description,
             'catalog_id'=>$catalog_id, 'description'=>$description, 'information'=>$information,
             'image_list'=>$image_list, 'view'=>$view, 'outstanding'=>$outstanding));
-        return redirect('/admin/products/add')->with('status',"Thêm thành công!");
+        toast('Thêm thành công!','success');
+        return redirect('/admin/products/add');
     }
     public function edit($id){
         $category = new Category();
@@ -105,7 +106,8 @@ class ProductsController extends Controller
         $product->outstanding = $outstanding;
         $product->catalog_id = $catalog_id;
         $product->save();
-        return redirect('/admin/products/edit/'.$id)->with('status',"Cập nhật thành công!");
+        toast('Cập nhật thành công!','success');
+        return redirect('/admin/products/edit/'.$id);
     }
     public function delete(Request $request){
         if($request->destroy == 1){
@@ -115,6 +117,7 @@ class ProductsController extends Controller
             $product = Product::find($request->id);
             $product->delete();
         }
-        return redirect('/admin/products')->with('status',"Xóa thành công!");
+        toast('Xóa thành công!','success');
+        return redirect('/admin/products');
     }
 }

@@ -473,7 +473,7 @@ ul.summary-list > li:last-child  {
 .a-forms a:hover span{
     color: #E12503;
 }
-#accordion .card-header{
+#accordion .card-header, .title-order{
     background-color: #E53935;
 }
 #accordion .card-header .btn.focus, #accordion .card-header .btn:focus,
@@ -481,4 +481,25 @@ ul.summary-list > li:last-child  {
 #accordion3  .btn.focus, #accordion3 .btn:focus{
     outline: 0;
     box-shadow: none;
+}
+.item-order{
+    margin: 0;
+    border: 1px solid #1b1f2326;
+    padding-top: 10px;
+    border-radius: 5px;
+}
+.item-order-detail table{
+    width: 100%;
+}
+.item-order-detail table tr,
+.item-order-detail table th ,
+.item-order-detail table td{
+    border: 1px solid #C4CDD5 !important;
+}
+.item-order-detail table tr:first-child{
+    background-color: #C4CDD5;
+    color: #2B2B2B;
+}
+.input-height{
+    height: 40px !important;
 }
